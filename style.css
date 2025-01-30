@@ -1,0 +1,447 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background: #ffecf2;
+    color: #d6336c;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+.heart {
+    width: 50px;
+    height: 50px;
+    background: red;
+    position: relative;
+    margin: 20px auto;
+    transform: rotate(-45deg);
+    cursor: pointer;
+    animation: heartbeat 1s infinite alternate;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    width: 50px;
+    height: 50px;
+    background: red;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -25px;
+    left: 0;
+}
+
+.heart::after {
+    left: 25px;
+    top: 0;
+}
+
+@keyframes heartbeat {
+    from {
+        transform: scale(1) rotate(-45deg);
+    }
+    to {
+        transform: scale(1.2) rotate(-45deg);
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.gallery img {
+    width: 200px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+}
+
+button {
+    background: #d6336c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #b32258;
+}
+
+/* Love Page Styling */
+.love-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.love-message {
+    font-size: 3em;
+    color: red;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+/* Love Page Styling */
+.love-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.love-message {
+    font-size: 3em;
+    color: red;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Letter Icon */
+.letter-icon {
+    font-size: 3em;
+    cursor: pointer;
+    margin-top: 20px;
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+/* Love Letter Box */
+#love-letter-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: #fff;
+    color: #d6336c;
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+#love-letter-box.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+button {
+    background: #d6336c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #b32258;
+}/* Love Page Styling */
+.love-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.love-message {
+    font-size: 3em;
+    color: red;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Letter Icon */
+.letter-icon {
+    font-size: 3em;
+    cursor: pointer;
+    margin-top: 20px;
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+Great idea! I'll add a special section where clicking an icon (like a heart or envelope) will display a letter about how much she means to you and your future goals.
+
+
+---
+
+Updated Features
+
+✔️ A new icon (e.g., an envelope or heart) to trigger the letter.
+✔️ The letter will appear smoothly with an animation.
+✔️ A close button to hide the letter if needed.
+
+
+---
+
+1. Updated love.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="love-container">
+        <h1 class="love-message">I Love You So Much! ❤️</h1>
+
+        <!-- Icon to show the love letter -->
+        <div class="letter-icon" onclick="showLoveLetter()">
+            💌
+        </div>
+
+        <!-- Hidden Love Letter Section -->
+        <div id="love-letter-box" class="hidden">
+            <p id="love-letter-text">
+                My Love,  
+                From the moment we met, you changed my life in ways I never imagined.  
+                You are my happiness, my strength, and my greatest blessing.  
+                I promise to always cherish, support, and love you endlessly.  
+                My goal is to build a future where we both grow together,  
+                achieve our dreams, and create endless beautiful memories.  
+                You are my forever, and I’m grateful for you every single day. ❤️
+            </p>
+            <button onclick="hideLoveLetter()">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+---
+
+2. Updated style.css
+
+/* Love Page Styling */
+.love-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.love-message {
+    font-size: 3em;
+    color: red;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Letter Icon */
+.letter-icon {
+    font-size: 3em;
+    cursor: pointer;
+    margin-top: 20px;
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+/* Love Letter Box */
+#love-letter-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: #fff;
+    color: #d6336c;
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+#love-letter-box.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+button {
+    background: #d6336c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #b32258;
+}
+
+
+
+/* Love Page Styling */
+.love-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.love-message {
+    font-size: 3em;
+    color: red;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Letter Icon */
+.letter-icon {
+    font-size: 3em;
+    cursor: pointer;
+    margin-top: 20px;
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+/* Love Letter Box */
+#love-letter-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: white;
+    color: #d6336c;
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* When the letter is visible */
+#love-letter-box.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    background: #d6336c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #b32258;
+}
